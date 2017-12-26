@@ -5,4 +5,8 @@ class Board
     @max_x = max_x
     @max_y = max_y
   end
+
+  def to_s
+    "This is a #{self.max_x}(x-axis) by #{self.max_y}(x-axis) navigation board"
+  end
 end

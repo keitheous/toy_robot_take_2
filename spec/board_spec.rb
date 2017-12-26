@@ -27,4 +27,26 @@ RSpec.describe Board do
       end
     end
   end
+
+  describe '.to_s' do
+    context 'default board instance' do
+      it 'indicates a 5 by 5 navigation board' do
+        board = Board.new
+
+        expect(board.to_s).to eq(
+          "This is a 5(x-axis) by 5(x-axis) navigation board"
+        )
+      end
+    end
+
+    context 'custom 3 by 6 board instance' do
+      it 'indicates a 3 by 6 navigation board' do
+        board = Board.new(3,6)
+
+        expect(board.to_s).to eq(
+          "This is a 3(x-axis) by 6(x-axis) navigation board"
+        )
+      end
+    end
+  end
 end
