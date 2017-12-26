@@ -10,7 +10,16 @@ class Movement
   end
 
   def step_forward
-
+    case self.bearing
+    when 'north'
+      @y_coordinate += 1
+    when 'south'
+      @y_coordinate -= 1
+    when 'west'
+      @x_coordinate += 1
+    when 'east'
+      @x_coordinate -= 1
+    end
   end
 
   def rotate(numeri_cremental)
