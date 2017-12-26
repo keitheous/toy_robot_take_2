@@ -3,7 +3,7 @@ require 'compass'
 class Movement
   attr_reader :bearing, :x_coordinate, :y_coordinate
 
-  def initialize(x_coordinate, y_coordinate, bearing = 'north')
+  def initialize(x_coordinate, y_coordinate, bearing)
     @x_coordinate = x_coordinate
     @y_coordinate = y_coordinate
     @bearing = bearing.downcase
