@@ -8,6 +8,14 @@ RSpec.describe Direction do
   end
 
   describe '.initialize' do
+    context 'invalid compass directions' do
+      it 'returns nil' do
+        invalid_compass = Direction.new('Midwest')
+        expect(invalid_compass.bearing).to eq(nil)
+
+      end
+    end
+
     context 'valid compass directions' do
       it 'bears North by default unless specified' do
         default_direction = Direction.new
