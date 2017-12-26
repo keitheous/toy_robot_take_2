@@ -83,4 +83,16 @@ RSpec.describe Direction do
       end
     end
   end
+
+  describe 'to_s' do
+    it 'indicates the current compass direction' do
+      direction = Direction.new('south')
+
+      expect(direction.to_s).to eq('South')
+
+      direction.rotate(-1)
+
+      expect(direction.to_s).to eq('East')
+    end
+  end
 end

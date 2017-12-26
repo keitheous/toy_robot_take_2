@@ -14,6 +14,10 @@ class Direction
     @bearing = COMPASS.rotate(numeri_cremental)[directional_index]
   end
 
+  def to_s
+    self.bearing.capitalize
+  end
+
   private
 
   def valid_compass(bearing)
