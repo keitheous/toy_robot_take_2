@@ -1,8 +1,8 @@
 require "bundler/setup"
 require "board"
+require "compass"
 require "movement"
-require "position"
-require 'compass'
+require "robot"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
