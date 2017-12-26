@@ -3,21 +3,20 @@ class Direction
   attr_reader :bearing
 
   def initialize(bearing = 'north')
-    return "invalid bearing" unless valid_compass(bearing)
+    return "invalid bearing" unless valid_compass(bearing.downcase)
 
     @bearing = bearing.downcase
   end
 
   def rotate(numeri_cremental)
-    current_direction = COMPASS.index(self.bearing.downcase)
-    relativity = COMPASS.rotate(numeri_cremental)
+    directional_index = COMPASS.index(self.bearing)
 
-    @bearing = relativity[current_direction]
+    @bearing = COMPASS.rotate(numeri_cremental)[directional_index]
   end
 
   private
 
   def valid_compass(bearing)
-    COMPASS.include?(bearing.downcase)
+    COMPASS.include?(bearing)
   end
 end
