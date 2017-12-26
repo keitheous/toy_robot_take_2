@@ -3,6 +3,6 @@ class Direction
   attr_reader :bearing
 
   def initialize(bearing = 'north')
-    @bearing = bearing
+    @bearing = bearing.capitalize
   end
 end
