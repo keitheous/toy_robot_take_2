@@ -1,6 +1,7 @@
 require "bundler/setup"
 require "board"
 require "direction"
+require "movement"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
