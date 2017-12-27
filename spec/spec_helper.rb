@@ -2,6 +2,7 @@ require "bundler/setup"
 require "board"
 require "compass"
 require "movement"
+require "position"
 require "robot"
 
 RSpec.configure do |config|

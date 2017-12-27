@@ -55,48 +55,45 @@ RSpec.describe Movement do
 
   describe '.rotate' do
     context 'turning left from north' do
+      let(:robot_starting_north) { Movement.new(0, 0, 'north') }
+
       it 'faces west when param is -1' do
-        robot_direction = Movement.new(0, 0, 'north')
-        robot_direction.rotate(-1)
-        expect(robot_direction.bearing).to eq('west')
+        robot_starting_north.rotate(-1)
+        expect(robot_starting_north.bearing).to eq('west')
       end
 
       it 'faces south when param is -2' do
-        robot_direction = Movement.new(0, 0, 'north')
-        robot_direction.rotate(-2)
-        expect(robot_direction.bearing).to eq('south')
+        robot_starting_north.rotate(-2)
+        expect(robot_starting_north.bearing).to eq('south')
       end
 
       it 'faces north when param is -4' do
-        robot_direction = Movement.new(0, 0, 'north')
-        robot_direction.rotate(-4)
-        expect(robot_direction.bearing).to eq('north')
+        robot_starting_north.rotate(-4)
+        expect(robot_starting_north.bearing).to eq('north')
       end
 
       it 'faces north when param is -8' do
-        robot_direction = Movement.new(0, 0, 'north')
-        robot_direction.rotate(-4)
-        expect(robot_direction.bearing).to eq('north')
+        robot_starting_north.rotate(-4)
+        expect(robot_starting_north.bearing).to eq('north')
       end
     end
 
     context 'turning right from east' do
+      let(:robot_starting_east) { Movement.new(0, 0, 'east') }
+
       it 'faces west when param is 1' do
-        robot_direction = Movement.new(0, 0, 'east')
-        robot_direction.rotate(1)
-        expect(robot_direction.bearing).to eq('south')
+        robot_starting_east.rotate(1)
+        expect(robot_starting_east.bearing).to eq('south')
       end
 
       it 'faces south when param is 3' do
-        robot_direction = Movement.new(0, 0, 'east')
-        robot_direction.rotate(3)
-        expect(robot_direction.bearing).to eq('north')
+        robot_starting_east.rotate(3)
+        expect(robot_starting_east.bearing).to eq('north')
       end
 
       it 'faces north when param is 10' do
-        robot_direction = Movement.new(0, 0, 'east')
-        robot_direction.rotate(10)
-        expect(robot_direction.bearing).to eq('west')
+        robot_starting_east.rotate(10)
+        expect(robot_starting_east.bearing).to eq('west')
       end
     end
   end
