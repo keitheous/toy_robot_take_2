@@ -1,6 +1,6 @@
 require 'position'
 require 'board'
-require 'rule'
+require 'movement'
 
 class Robot
   attr_reader :position, :bearing, :placed, :arena
