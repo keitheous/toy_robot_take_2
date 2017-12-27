@@ -37,7 +37,7 @@ RSpec.describe Movement do
         robot = Movement.new(5,4, 'east')
         robot.step_forward
 
-        expect(robot.x_coordinate).to eq(4)
+        expect(robot.x_coordinate).to eq(6)
         expect(robot.y_coordinate).to eq(4)
       end
     end
@@ -47,7 +47,7 @@ RSpec.describe Movement do
         robot = Movement.new(5,4, 'west')
         robot.step_forward
 
-        expect(robot.x_coordinate).to eq(6)
+        expect(robot.x_coordinate).to eq(4)
         expect(robot.y_coordinate).to eq(4)
       end
     end

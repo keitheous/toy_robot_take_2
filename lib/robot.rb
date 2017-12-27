@@ -15,6 +15,7 @@ class Robot
 
   def move_forward
     movement = Movement.new(self.position.x, self.position.y, self.bearing)
+
     movement.step_forward
 
     set_position_coordinate(movement.x_coordinate, movement.y_coordinate)

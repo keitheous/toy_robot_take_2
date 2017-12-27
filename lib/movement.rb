@@ -16,9 +16,9 @@ class Movement
     when 'south'
       @y_coordinate -= 1
     when 'west'
-      @x_coordinate += 1
-    when 'east'
       @x_coordinate -= 1
+    when 'east'
+      @x_coordinate += 1
     end
   end
 

@@ -25,13 +25,37 @@ RSpec.describe Robot do
   end
 
   describe '.move_forward' do
-    let(:robot) { Robot.new(0, 0, 'north', true) }
+    context 'moving north-ward' do
+      north_robot = Robot.new(0, 0, 'north', true)
 
-    it 'moves robot from position 0,0 to 0,1' do
-      new_position = robot.move_forward
-      p 'new position here!'
-      expect(new_position.x).to eq(0)
-      expect(new_position.y).to eq(0)
+      it 'moves robot from position(x,y) 0,0 to 0,1' do
+        new_position = north_robot.move_forward
+
+        expect(new_position.x).to eq(0)
+        expect(new_position.y).to eq(1)
+      end
+    end
+
+    context 'moving east-ward' do
+      east_robot = Robot.new(0, 0, 'east', true)
+
+      it 'moves robot from position(x,y) 0,0 to 1,0' do
+        new_position = east_robot.move_forward
+
+        expect(new_position.x).to eq(1)
+        expect(new_position.y).to eq(0)
+      end
+    end
+
+    context 'moving south-ward' do
+      east_robot = Robot.new(10,10, 'south', true)
+
+      it 'moves robot from position(x,y) 10,10 to 10,9' do
+        new_position = east_robot.move_forward
+
+        expect(new_position.x).to eq(10)
+        expect(new_position.y).to eq(9)
+      end
     end
   end
 end
