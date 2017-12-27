@@ -26,6 +26,11 @@ class Robot
     rotate_in_direction(1)
   end
 
+  def report
+    puts "Reporting:"
+    puts "Position #{self.position.to_s}, facing #{self.bearing}"
+  end
+
   private
 
   def set_position_coordinate(x, y)
