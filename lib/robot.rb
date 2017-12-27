@@ -1,10 +1,10 @@
 require 'position'
 
 class Robot
-  attr_reader :position, :bearing, :placement
+  attr_reader :position, :bearing, :placed
 
-  def initialize(position_x, position_y, bearing, placement = false)
-    @placement = placement
+  def initialize(position_x, position_y, bearing, placed = false)
+    @placed = placed
 
     set_position_coordinate(position_x, position_y)
     set_compass_bearing(bearing)

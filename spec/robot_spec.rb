@@ -18,8 +18,8 @@ RSpec.describe Robot do
         expect(robot.bearing).to eq('north')
       end
 
-      it 'contains placement boolean' do
-        expect(robot.placement).to eq(true)
+      it 'contains placed boolean' do
+        expect(robot.placed).to eq(true)
       end
     end
   end
