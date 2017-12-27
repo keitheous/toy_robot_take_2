@@ -3,6 +3,7 @@ require "board"
 require "compass"
 require "movement"
 require "position"
+require "rule"
 require "robot"
 
 RSpec.configure do |config|

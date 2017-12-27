@@ -1,10 +1,12 @@
 require 'position'
+require 'board'
 
 class Robot
-  attr_reader :position, :bearing, :placed
+  attr_reader :position, :bearing, :placed, :arena
 
   def initialize(position_x, position_y, bearing, placed = false)
     @placed = placed
+    @arena = Board.new
 
     set_position_coordinate(position_x, position_y)
     set_compass_bearing(bearing)
@@ -28,7 +30,7 @@ class Robot
 
   def report
     puts "Reporting:"
-    puts "Position #{self.position.to_s}, facing #{self.bearing}"
+    puts "Position #{self.position.to_s}, facing #{self.bearing.capitalize}."
   end
 
   private

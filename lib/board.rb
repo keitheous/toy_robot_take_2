@@ -7,6 +7,6 @@ class Board
   end
 
   def to_s
-    "This is a #{self.max_x}(x-axis) by #{self.max_y}(x-axis) navigation board"
+    "this is a #{self.max_x}(x-axis) by #{self.max_y}(x-axis) navigation board."
   end
 end
