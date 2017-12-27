@@ -3,10 +3,10 @@ require 'compass'
 class Movement
   attr_reader :bearing, :x_coordinate, :y_coordinate
 
-  def initialize(x_coordinate, y_coordinate, bearing)
+  def initialize(x_coordinate = nil, y_coordinate = nil, bearing = nil)
     @x_coordinate = x_coordinate
     @y_coordinate = y_coordinate
-    @bearing = bearing.downcase
+    @bearing = bearing&.downcase
   end
 
   def step_forward

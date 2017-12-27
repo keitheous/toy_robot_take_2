@@ -10,14 +10,6 @@ class Robot
     set_compass_bearing(bearing)
   end
 
-  def set_position_coordinate(x, y)
-    @position = Position.new(x, y)
-  end
-
-  def set_compass_bearing(bearing)
-    @bearing = bearing
-  end
-
   def move_forward
     movement = Movement.new(self.position.x, self.position.y, self.bearing)
 
@@ -27,17 +19,27 @@ class Robot
   end
 
   def turn_left
-    movement = Movement.new(self.position.x, self.position.y, self.bearing)
-
-    movement.rotate(-1)
-
-    set_compass_bearing(movement.bearing)
+    rotate_in_direction(-1)
   end
 
   def turn_right
-    movement = Movement.new(self.position.x, self.position.y, self.bearing)
+    rotate_in_direction(1)
+  end
 
-    movement.rotate(1)
+  private
+
+  def set_position_coordinate(x, y)
+    @position = Position.new(x, y)
+  end
+
+  def set_compass_bearing(bearing)
+    @bearing = bearing
+  end
+
+  def rotate_in_direction(numeri_cremental)
+    movement = Movement.new(nil, nil, self.bearing)
+
+    movement.rotate(numeri_cremental)
 
     set_compass_bearing(movement.bearing)
   end
