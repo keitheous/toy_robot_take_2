@@ -33,7 +33,7 @@ RSpec.describe Board do
         board = Board.new
 
         expect(board.to_s).to eq(
-          "This is a 5(x-axis) by 5(x-axis) navigation board"
+          "this is a 5(x-axis) by 5(x-axis) navigation board"
         )
       end
     end
@@ -43,7 +43,7 @@ RSpec.describe Board do
         board = Board.new(3,6)
 
         expect(board.to_s).to eq(
-          "This is a 3(x-axis) by 6(x-axis) navigation board"
+          "this is a 3(x-axis) by 6(x-axis) navigation board"
         )
       end
     end
