@@ -26,40 +26,67 @@ RSpec.describe Robot do
 
   describe '.move_forward' do
     context 'moving north-ward' do
-      north_robot = Robot.new(0, 0, 'north', true)
+      let(:north_robot) { Robot.new(0, 0, 'north', true) }
 
       it 'moves robot from position(x,y) 0,0 to 0,1' do
-        new_position = north_robot.move_forward
+        north_robot.move_forward
 
-        expect(new_position.x).to eq(0)
-        expect(new_position.y).to eq(1)
+        expect(north_robot.position.x).to eq(0)
+        expect(north_robot.position.y).to eq(1)
+      end
+
+      it 'moves four steps forward safely' do
+        north_robot.move_forward
+        north_robot.move_forward
+        north_robot.move_forward
+        north_robot.move_forward
+
+        expect(north_robot.position.x).to eq(0)
+        expect(north_robot.position.y).to eq(4)
+      end
+
+      it 'prevents out of boundaries movements' do
+        north_robot.move_forward
+        north_robot.move_forward
+        north_robot.move_forward
+        north_robot.move_forward
+        north_robot.move_forward
+        north_robot.move_forward
+
+        expect(north_robot.position.x).to eq(0)
+        expect(north_robot.position.y).to eq(4)
       end
     end
 
     context 'moving east-ward' do
-      east_robot = Robot.new(0, 0, 'east', true)
-
       it 'moves robot from position(x,y) 0,0 to 1,0' do
-        new_position = east_robot.move_forward
+        east_robot = Robot.new(0, 0, 'east', true)
+        east_robot.move_forward
 
-        expect(new_position.x).to eq(1)
-        expect(new_position.y).to eq(0)
+        expect(east_robot.position.x).to eq(1)
+        expect(east_robot.position.y).to eq(0)
       end
     end
 
     context 'moving south-ward' do
-      east_robot = Robot.new(10,10, 'south', true)
+      it 'moves robot from position(x,y) 4,4 to 4,3' do
+        south_robot = Robot.new(4,4, 'south', true)
+        south_robot.move_forward
 
-      it 'moves robot from position(x,y) 10,10 to 10,9' do
-        new_position = east_robot.move_forward
-
-        expect(new_position.x).to eq(10)
-        expect(new_position.y).to eq(9)
+        expect(south_robot.position.x).to eq(4)
+        expect(south_robot.position.y).to eq(3)
       end
     end
   end
 
   describe '.turn_left' do
+    it 'prevents left turn if robot is not placed on board' do
+      robot_starting_north = Robot.new(0, 0, 'north', false)
+      robot_starting_north.turn_left
+
+      expect(robot_starting_north.bearing).to eq('north')
+    end
+
     it 'turns left from bearing north to west' do
       robot_starting_north = Robot.new(0, 0, 'north', true)
       robot_starting_north.turn_left
@@ -76,6 +103,14 @@ RSpec.describe Robot do
   end
 
   describe '.turn_right' do
+    it 'prevents left right if robot is not placed on board' do
+      robot_starting_north = Robot.new(0, 0, 'north', false)
+      robot_starting_north.turn_right
+
+      expect(robot_starting_north.bearing).to eq('north')
+    end
+
+
     it 'turns right from bearing north to east' do
       robot_starting_north = Robot.new(0, 0, 'north', true)
       robot_starting_north.turn_right

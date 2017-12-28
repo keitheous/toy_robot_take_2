@@ -3,17 +3,18 @@ require 'board'
 require 'movement'
 
 class Robot
-  attr_reader :position, :bearing, :placed, :arena
+  attr_reader :position, :bearing, :placed, :board
 
   def initialize(position_x, position_y, bearing, placed = false)
     @placed = placed
-    @arena = Board.new
+    @board = Board.new
 
     set_position_coordinate(position_x, position_y)
     set_compass_bearing(bearing)
   end
 
   def move_forward
+    return unless placed
     movement = Movement.new(self.position.x, self.position.y, self.bearing)
     movement.step_forward
 
@@ -21,22 +22,23 @@ class Robot
   end
 
   def turn_left
-    rotate_in_direction(-1)
+    rotate_in_direction(-1) if robot_placed_on_board?(placed)
   end
 
   def turn_right
-    rotate_in_direction(1)
+    rotate_in_direction(1) if robot_placed_on_board?(placed)
   end
 
   def report
-    puts "Reporting:"
-    puts "Position #{self.position.to_s}, facing #{self.bearing.capitalize}."
+    if robot_placed_on_board?(placed)
+      puts "Position #{self.position.to_s}, facing #{self.bearing.capitalize}."
+    end
   end
 
   private
 
   def set_position_coordinate(x, y)
-    @position = Position.new(x, y)
+    @position = Position.new(x, y) if Rule.robot_inbound(Position.new(x, y), board)
   end
 
   def set_compass_bearing(bearing)
@@ -49,5 +51,11 @@ class Robot
     movement.rotate(numeri_cremental)
 
     set_compass_bearing(movement.bearing)
+  end
+
+  def robot_placed_on_board?(placed)
+    Rule.placed_on_board?(placed)
+
+    placed
   end
 end

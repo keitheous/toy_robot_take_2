@@ -8,10 +8,7 @@ class Rule
     inbound
   end
 
-  def self.placed_on_board?(robot)
-    robot_placed = robot.placed
-
+  def self.placed_on_board?(robot_placed)
     puts "robot is not yet placed" unless robot_placed
-    robot_placed
   end
 end

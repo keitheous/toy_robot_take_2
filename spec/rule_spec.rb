@@ -1,22 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe Rule do
-  describe ".placed_on_board?" do
-    it 'returns true if robot is placed' do
-      placed_robot = Robot.new(0,0,'north', true)
-      rule = Rule.placed_on_board?(placed_robot)
-
-      expect(rule).to eq(true)
-    end
-
-    it 'returns false if robot is not placed' do
-      floating_robot = Robot.new(0,0,'north', false)
-      rule = Rule.placed_on_board?(floating_robot)
-
-      expect(rule).to eq(false)
-    end
-  end
-
   describe ".robot_inbound" do
     let(:board_boundaries) { Board.new(10, 10) }
 
