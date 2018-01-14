@@ -21,6 +21,14 @@ class Robot
     set_position_coordinate(movement.x_coordinate, movement.y_coordinate)
   end
 
+  def rotate_in_direction(numeri_cremental)
+    movement = Movement.new(nil, nil, self.bearing)
+
+    movement.rotate(numeri_cremental)
+
+    set_compass_bearing(movement.bearing)
+  end
+
   def turn_left
     rotate_in_direction(-1) if robot_placed_on_board?(placed)
   end
@@ -43,14 +51,6 @@ class Robot
 
   def set_compass_bearing(bearing)
     @bearing = bearing
-  end
-
-  def rotate_in_direction(numeri_cremental)
-    movement = Movement.new(nil, nil, self.bearing)
-
-    movement.rotate(numeri_cremental)
-
-    set_compass_bearing(movement.bearing)
   end
 
   def robot_placed_on_board?(placed)
