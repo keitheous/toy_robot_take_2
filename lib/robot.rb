@@ -7,7 +7,7 @@ class Robot
 
   def initialize(position_x, position_y, bearing, placed = false)
     @placed = placed
-    @board = Board.new
+    # @board = Board.new
 
     set_position_coordinate(position_x, position_y)
     set_compass_bearing(bearing)
